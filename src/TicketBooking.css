@@ -1,8 +1,8 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg-color: #042c37;
+  --bg-gradient-start: #031418;
+  --bg-gradient-end: #02171c;
   --text-color: #ffffff;
   --accent-color: #2cc9d1;
   --card-bg: #063f4c;
@@ -11,46 +11,114 @@
   --error-color: #ff5252;
 }
 
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  color: var(--text-color);
+}
+
+.app-container {
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 25px auto;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid #1eacb3;
+  border-radius: 30px;
+  max-width: 600px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ticket-icon {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.site-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.my-tickets-btn {
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 0.6rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow {
+  font-size: 1.2rem;
+}
+
+
+.progress-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+  height: 4px;
+  border-radius: 2px;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.progress-filled {
+  background-color: var(--accent-color);
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
 .ticket-booking {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg-color);
   color: var(--text-color);
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 2rem;
 }
 
-
-.Attendee-Details {
+.ticket-selection, .profile-info, .confirmation {
   width: 100%;
-  max-width: 750px;
+  max-width: 600px;
+  padding: 0 2rem;
+  border: 1px solid #1eacb3;
+  border-radius: 30px;
+}
+.ticket-title{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 h1 {
   font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 0.5rem;
   color: var(--text-color);
-  position: relative;
-}
-
-h1:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -5px;
-  width: 50px;
-  height: 2px;
-  background-color: var(--accent-color);
 }
 
 .step-indicator {
   font-size: 0.9rem;
   color: #aaaaaa;
   display: block;
-  margin-bottom: 2rem;
 }
 
 .event-card {
@@ -76,6 +144,11 @@ h1:after {
 
 .ticket-selection-container {
   margin-top: 2rem;
+}
+
+.selection-title {
+  margin-bottom: 1rem;
+  font-weight: 500;
 }
 
 .ticket-types {
@@ -125,10 +198,9 @@ h1:after {
 .ticket-count select {
   width: 100%;
   padding: 0.8rem;
-  background-color: var(--input-bg);
   border: 1px solid var(--border-color);
   border-radius: 6px;
-  color: var(--text-color);
+  color: green;
   appearance: none;
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -159,7 +231,7 @@ h1:after {
   background-color: var(--accent-color);
   border: none;
   border-radius: 6px;
-  color: var(--bg-color);
+  color: var(--bg-gradient-start);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -168,12 +240,6 @@ h1:after {
 .next-btn:hover {
   background-color: #1eacb3;
 }
-
-.next-btn:disabled {
-  background-color: #1a5e63;
-  cursor: not-allowed;
-}
-
 
 .error-message {
   color: var(--error-color);
@@ -188,12 +254,6 @@ h1:after {
 
 .input-error-container {
   border-color: var(--error-color);
-}
-
-
-.profile-info {
-  width: 100%;
-  max-width: 600px;
 }
 
 .photo-upload {
@@ -269,7 +329,6 @@ h1:after {
   resize: vertical;
 }
 
-
 .confirmation {
   width: 100%;
   max-width: 450px;
@@ -343,7 +402,7 @@ h1:after {
 .profile-avatar {
   width: 70px;
   height: 70px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-gradient-start);
   border-radius: 6px;
 }
 
@@ -402,7 +461,7 @@ h1:after {
   background-color: var(--accent-color);
   border: none;
   border-radius: 6px;
-  color: var(--bg-color);
+  color: var(--bg-gradient-start);
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -411,3 +470,11 @@ h1:after {
 .book-another-btn:hover {
   background-color: #1eacb3;
 }
+.app-container {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--bg-gradient-start), var(--bg-gradient-end));
+  font-family: 'Inter', sans-serif;
+  color: var(--text-color);
+}
+
+
